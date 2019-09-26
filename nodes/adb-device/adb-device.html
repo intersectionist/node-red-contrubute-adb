@@ -44,12 +44,32 @@
         }
     });
 </script>
+<script type="text/javascript">
+    RED.nodes.registerType('adb-screenshot', {
+        category: 'ADB',
+        color: '#7ac8cf',
+        defaults: {
+            name: {value: ""},
+            delete_after: {value: false},
+            pull_path: {value: ''}
+        },
+        inputs: 1,
+        outputs: 2,
+        icon: "file.png",
+        label: function () {
+            return this.name || "Adb Screenshot";
+        }
+    });
+</script>
 
 <script type="text/x-red" data-template-name="adb-list-devices">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
+
+
+
 </script>
 
 <script type="text/x-red" data-template-name="adb-device-features">
@@ -61,6 +81,9 @@
         <label for="node-input-device_id"><i class="icon-tag"></i> Device ID</label>
         <input type="text" id="node-input-device_id" placeholder="Device ID">
     </div>
+
+
+
 </script>
 
 <script type="text/x-red" data-template-name="adb-shell">
@@ -68,4 +91,26 @@
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
+
+
+
+</script>
+
+<script type="text/x-red" data-template-name="adb-screenshot">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+
+    <div class="form-row">
+        <label for="node-input-delete_after"><i class="icon-tag"></i> Delete After</label>
+        <input type="checkbox" id="node-input-delete_after" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-pull_path"><i class="icon-tag"></i> Pull Path</label>
+        <input type="text" id="node-input-pull_path" placeholder="Pull full path">
+    </div>
+
 </script>
